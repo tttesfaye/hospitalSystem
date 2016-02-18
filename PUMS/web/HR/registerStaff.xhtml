@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html template="./resources/temp/TemplateWithOutNavi.xhtml"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition>
+        <p:dialog id="memoDialg" modal="true" style="height: 400px;width: 600px" widgetVar="memoDialog"   resizable="false" appendTo="@(body)" header="Enroll New Patient}" >
+            <h:form id="regFrms">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="1" styleClass="noBorders"     >
+
+                        <p:panelGrid  id="pnlGridMemo" columns="3"  rendered="true" style="  width: 100%; min-width: 25px " >
+                            <p:outputLabel value="Full Name:" />
+                            <p:inputText required="true" id="txtName"  requiredMessage="You must enter Subject" value="" />
+                            <p:message id="msgName" for="txtName" />  
+                            <p:outputLabel  for="selctSex" value="Sex:" />
+                            <p:selectOneMenu id="selctSex" value="#{patientReg.sex}" style="width:125px">
+                                <f:selectItem itemLabel="--- Select Sex --- " itemValue="" />
+                                <f:selectItem itemLabel="Male" itemValue="male" />
+                                <f:selectItem itemLabel="Female" itemValue="female" />
+                                
+                            </p:selectOneMenu>
+                             <p:message id="msgSex" for="selctSex" />  
+                            <p:outputLabel for="btnBdate" value="Date of Birth:" />
+                            <p:calendar id="btnBdate" value="#{patientReg.birthDate}" showOn="button" />
+                            <p:message id="msgBdate" for="btnBdate" /> 
+                            <p:outputLabel value="Remark" />
+                            <p:inputTextarea   id="txtADescription" value=""/>
+                            <p:message id="msgADescription"   for="txtADescription" />
+                        </p:panelGrid>
+                        <!--<h:panelGrid style="font-size: 10px; width: 136px; "> 
+                            <p:commandButton id="btnSaveCategory"  value="Enroll New patient"  validateClient="true" ajax="false"  
+                                             update=":frmDoc, catFrms, display" oncomplete="PF('CategoryCreateDialog').hide()" />
+                        </h:panelGrid>-->
+
+                    </p:panelGrid> 
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+    </ui:composition>
+</html>

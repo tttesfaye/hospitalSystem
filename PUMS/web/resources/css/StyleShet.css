@@ -1,0 +1,65 @@
+.forLable {
+    font-size: 100%; 
+    width: 150%;
+    font-family: 'Times New Roman';
+    font-style: normal;
+}
+
+.forItxt{
+    font-family: 'Times New Roman'!important; 
+    font-size: 100%!important; 
+    font-style: normal!important; 
+    font-weight: lighter!important; 
+    width: 164px!important; 
+}
+
+.forSelOneRad{
+    font-family: 'Times New Roman'!important; 
+    font-size: 100%!important; 
+    font-style: normal!important; 
+    font-weight: lighter!important; 
+    width: 150px!important; 
+}
+
+.forTab{
+    width: 100%; 
+    position: relative;
+    height: 100%;
+}
+
+.forTabTitle{
+    font-family: 'Times New Roman';
+    font-size: 100%;
+    font-weight: bold;   
+}
+
+.forColumn{
+    font-size: 70%; 
+    text-align: center; 
+    width: 60%
+}
+
+.forDialog{
+    width: 100px;
+    font-family: 'Lucida Sans'; 
+    font-size: 100%; 
+    font-style: normal; 
+    font-weight: lighter;
+}
+
+.forTextArea{
+    font-family: 'Times New Roman'; 
+    font-size: 100%; 
+    font-style: normal; 
+    font-weight: lighter; 
+    width: 164px; 
+    height: 60px;
+}
+
+.forButton{
+    font-family: 'Times New Roman';
+    font-size: 100%; 
+    font-weight: bold;
+}
+
+

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<div
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"          
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+
+    <h:form id="header">
+        <link href="../css/Layout.css" rel="stylesheet" type="text/css"/>
+        <h:outputStylesheet library="primefaces-#{themesBean.theme}" name="theme.css" /> 
+        <script src="./resources/jquery.js" type="text/javascript"></script>
+        <script src="./resources/jquery-easing.js" type="text/javascript"></script>
+        <script src="./resources/jquery-compatibility.js" type="text/javascript"></script>
+        <script src="./resources/jquery-slider.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            jQuery(window).bind("load", function () {
+                jQuery("div#slider1").codaSlider()
+            });
+        </script>
+
+        <div id="headerTop"   class="ui-widget-header">
+
+
+            <h:inputText  id="serTxtSearch"  value="${documents.searchName}"   />
+            <h:commandButton  value="Search" actionListener="#{documents.search}" >
+                <f:ajax     execute="serTxtSearch"  />
+            </h:commandButton>
+            
+
+            <div id="logo">
+                <p:graphicImage id="imgLogo" url="/resources/images/hader_Logo_1.png" alt="#{dmsBundle.documentManagmentSystem}"/>
+            </div>
+            <p:outputLabel for="themePreview" value="Theme:" /> 
+            <p:themeSwitcher  effectSpeed="normal" effect="fold" style="width:150px" id="themePreview" value="#{userPreference.selectedTheme}">
+                <f:selectItem itemLabel="Choose Theme" itemValue="" />
+                <f:selectItems value="#{themeSwitcherView.themes}"   />
+                <p:ajax global="false"   listener="#{themeSwitcherView.saveTheme}" />
+            </p:themeSwitcher>
+            <div id="menuContainer">
+                <ul id="menu">
+                    <li>
+                        <h:commandLink id="cmdHome" action="#{navigationControl.toHomePage()}"  value="Home"/>
+                    </li>
+                    <li>
+                        <h:commandLink id="cmdDocManag" action="#{navigationControl.toHomePage()}"  value="Admin"/>
+                    </li>
+
+                    <li>                        
+                        <h:commandLink id="cmdAdminCenter" value="#{dmsBundle.adminCenter}"/>                       
+                    </li>
+                    <li >
+                        <h:commandLink id="cmdLnkLookup" value="Service"/>
+                        <ul> 
+                            <li> <p:commandLink id="cmdlocation" action="#{navigationControl.toPhysicalLocationPage()}"  value="Lookups"/> </li>
+                            <li> <p:commandLink id="cmdreport" action="#{navigationControl.toReport()}"  value="Report"/> </li>
+                             <li> <p:commandLink id="cmdOrganization" action="#{navigationControl.toLookups()}"  value="Others"/> </li>
+                        </ul>
+                    </li> 
+                 
+                    <li>
+
+                        <p:graphicImage styleClass="txtButton" id="imgUser" 
+                                        url="/resources/images/group.png" alt="user"/>
+                        <h:commandLink id="cmdLnkUserName" value="#{dmsBundle.userName}"/>
+                        <ul id="userSubMenu">
+                            <li>
+                                <h:commandLink id="cmdHelp" value="#{dmsBundle.help}"/>
+                            </li>
+                            <li>
+                                <h:commandLink id="cmdLogOut" value="#{dmsBundle.logout}"/>
+                            </li>                            
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div style="float: left"> 
+                <p:outputLabel  value="PUMS Pediyatrics Unit Management System" style="font-size: 30px" />
+            </div>
+
+        </div>
+    </h:form>
+</div>
