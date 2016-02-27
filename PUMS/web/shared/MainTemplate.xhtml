@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:h="http://java.sun.com/jsf/html"      
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:f="http://java.sun.com/jsf/core"
+       >
+    <h:head>
+        <title>IMC Ethiopia Program Database</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        <link href="/PUMS/faces/javax.faces.resource/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="/PUMS/faces/javax.faces.resource/css/theme.css" rel="stylesheet" type="text/css" />
+        <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    </h:head>
+    <h:body>
+        <div id="container" style="z-index: 1000">
+            <div id="header">
+                <div id="logo1" >
+                    <p></p>
+                </div>
+                <h2>
+                    &nbsp; </h2>
+                <h:form id="frmMenuList">
+
+                    <div id="topmenu" style="  width: 100%;" >
+                        <p:growl  id="growl" showDetail="true" sticky="true"  />  
+                        <p:menubar >
+                            <p:submenu   label="System" icon="ui-icon-document">
+                                <p:submenu  label="Setting" >
+                                    <p:menuitem value="Location Master" action="#{menuMB.to_address_creation}" />
+                                    <p:menuitem value="Sector Master" action="#{menuMB.to_sector}" />
+                                    <p:menuitem value="Donor List Master" action="#{menuMB.to_donor_master_view}" />
+                                    <p:menuitem value="Indicators List Master" action="#{menuMB.to_indicator_master_view}" />
+                                    <p:menuitem value="Resource Type" action="#{menuMB.to_resource_type}" />
+                                    <p:menuitem value="Resource Registration" action="#{menuMB.to_resource_registration}" />
+                                    <p:menuitem value="Age Group " action="#{menuMB.to_age_group_registration}" />
+                                </p:submenu>
+                                <p:submenu    label="Users Setting" >
+                                    <p:menuitem value="User Registration" action="#{menuMB.to_userDetail_registration}" />
+                                    <p:menuitem value="Role List Master" action="#{menuMB.navToEmployeeView}" />
+                                    <p:menuitem value="User Role" action="#{menuMB.to_userRole_registration}" />
+                                    <p:menuitem value="User Role Assignment" action="#{menuMB.to_userRole_assignment}" />
+                                </p:submenu>
+                            </p:submenu>
+                            <p:submenu  label="Grant" icon="ui-icon-help" >  
+                                <p:menuitem ajax="false"   action="#{menuMB.to_grant_list_view}" value="View Grant List" > </p:menuitem>
+                                <p:menuitem ajax="false" actionListener="#{grantInfoController.to_new_grant_creation}"  action="#{menuMB.to_grant_creation}" value="Create New Grant" > </p:menuitem>
+                            </p:submenu>
+                            <p:submenu   label=" System Reports" icon="ui-icon-gear">
+                                <p:menuitem ajax="false"   action="#{menuMB.to_report_master}" value="System Report List" > </p:menuitem>
+                            </p:submenu>
+                            <f:facet name="options">
+                                <p:commandButton ajax="false" action="#{userAutentication.logOut}"  value="Logout" icon="ui-icon-extlink" />
+                            </f:facet>
+                        </p:menubar>
+
+                    </div>
+
+                </h:form>
+                <div id="logo" >
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+
+            <div id="wrapper">
+                <div id="content">
+                    <div id="rightnow">
+
+                        <ui:insert name="detailBox">detailBox</ui:insert>
+                        <ui:insert name="content">content</ui:insert>
+                    </div>
+                </div>
+                <div id="sidebar">
+                    <ui:insert name="leftContent">
+
+
+
+                    </ui:insert>
+                </div>
+            </div>
+            <div id="footer" style="color:  white; font-weight: bolder; text-align: center;" align="center">
+                <!--                                <h:form style="height: 40px !important">
+                                                    <p>
+                                
+                                                        <p:dock  position="bottom" >
+                                                            <p:menuitem value="Planning" icon="/resources/img/plan.png" url="#"/>
+                                                            <p:menuitem value="Activity Status" icon="/resources/img/Project-icon.png" url="#"/>
+                                                            <p:menuitem value="Indicator Value" icon="/resources/img/plan.png" url="#"/>
+                                                            <p:menuitem value="Home" icon="/resources/img/plan.png" url="#"/>
+                                                        </p:dock>-->
+                <!--</h:form>-->
+                <p> &copy;2014 Mine P.L.C </p> <p>All Rights Reserved.</p>
+
+            </div>
+        </div>
+    </h:body>
+</html>
+
